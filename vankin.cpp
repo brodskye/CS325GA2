@@ -109,6 +109,6 @@ int main(){
     FILE* fd = fopen("output.txt", "w");
     fprintf(fd, "%d", mostExpensive);
     fclose(fd);
-    return 1;
+    return 0;
  
 }
