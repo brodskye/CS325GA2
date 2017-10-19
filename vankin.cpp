@@ -8,13 +8,8 @@
 
 using namespace std;
 
-int getParameters(); //never used
-
 int main(){
-    //string dir = "input.txt";
-    //static const int N = getParameters();
-    //int grid[N][N];
-    int n; //never really used
+    int n;
     int k;
     int test;
     FILE* fp;
@@ -117,11 +112,3 @@ int main(){
     return 1;
  
 }
-
-int getParameters(){
-    int n;
-    ifstream file("input.txt", ios::in);
-    file >> n;
-    return n;
-}
-
