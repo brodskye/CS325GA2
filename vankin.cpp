@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int getParameters(); //never used
+//int getParameters(); //never used
 
 int main(){
     //string dir = "input.txt";
@@ -20,7 +20,7 @@ int main(){
     FILE* fp;
     fp = fopen("input.txt", "rb");
     fscanf(fp, "%d", &n);
-    printf("num = %d\n", n);
+    //printf("num = %d\n", n);
     int grid[n][n];
 
     for(int i=0;;i++){
@@ -28,22 +28,22 @@ int main(){
             if(fscanf(fp, "%d", &test) == -1)
                 goto end;
             grid[i][j]=test;
-            printf("grid[%d][%d] = %d\n", i, j, grid[i][j]);
+            //printf("grid[%d][%d] = %d\n", i, j, grid[i][j]);
             if((k=fgetc(fp)) == '\n')
                 break;
             }
         }
     end:
-        printf("All Done\n");
+        //printf("All Done\n");
 
-	for (int i = 0; i < n; i++) {
+	/*for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			std::cout << grid[i][j] << " ";
+			//std::cout << grid[i][j] << " ";
 			if (j == n - 1)
-				std::cout << std::endl;
+				//std::cout << std::endl;
 		}
-	}
-	std::cout << "---------------------------" << "\n";
+	}*/
+	//std::cout << "---------------------------" << "\n";
 	int mostExpensive = 0;
 	for (int x = 0; x < n; x++) {
 		for (int y = 0; y < n; y++) {
@@ -65,13 +65,13 @@ int main(){
 				for (j = y+1; j <= n - 1; j++)
 					costs[i][j] = max(costs[i - 1][j], costs[i][j - 1]) + grid[i][j];
 
-			for (i = 0; i < n; i++) {
+			/*for (i = 0; i < n; i++) {
 				for (j = 0; j < n; j++) {
 					std::cout << costs[i][j] << " ";
 					if (j == n - 1)
 						std::cout << std::endl;
 				}
-			}
+			}*/
 			
 			int totals[2 * n];
 			for (int i = 0; i < n; i++)
@@ -79,9 +79,9 @@ int main(){
 			for (int j = 0; j < n; j++)
 				totals[n+j] = costs[n-1][j];
 			//PRINT THE ARRAY
-			for (int i = 0; i < 2 * n; i++)
+			/*for (int i = 0; i < 2 * n; i++)
 				std::cout << totals[i] << " ";
-			std::cout << std::endl;
+			std::cout << std::endl;*/
 			//sort the array
 			bool swapped = true;
 			int k = 0;
@@ -99,9 +99,9 @@ int main(){
 				}
 			}//end sort
 			//PRINT SORTED ARRAY
-			for (int i = 0; i < 2 * n; i++)
+			/*for (int i = 0; i < 2 * n; i++)
 				std::cout << totals[i] << " ";
-			std::cout << std::endl;
+			std::cout << std::endl;*/
 
 			for (int i = 0; i < 2 * n; i++) {
 				if (totals[i] > mostExpensive)
@@ -118,10 +118,10 @@ int main(){
  
 }
 
-int getParameters(){
+/*int getParameters(){
     int n;
     ifstream file("input.txt", ios::in);
     file >> n;
     return n;
-}
+}*/
 
