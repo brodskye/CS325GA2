@@ -8,8 +8,13 @@
 
 using namespace std;
 
+int getParameters(); //never used
+
 int main(){
-    int n;
+    //string dir = "input.txt";
+    //static const int N = getParameters();
+    //int grid[N][N];
+    int n; //never really used
     int k;
     int test;
     FILE* fp;
@@ -109,6 +114,14 @@ int main(){
     FILE* fd = fopen("output.txt", "w");
     fprintf(fd, "%d", mostExpensive);
     fclose(fd);
-    return 0;
+    return 1;
  
 }
+
+int getParameters(){
+    int n;
+    ifstream file("input.txt", ios::in);
+    file >> n;
+    return n;
+}
+
